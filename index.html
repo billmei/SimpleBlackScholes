@@ -12,6 +12,8 @@
     <div class="container">
         <form class="calculation form-horizontal" id="mainForm">
             <h1>Black-Scholes Calculator</h1>
+            <h2>Created by <a href="http://www.kortaggio.com">Bill Mei</a></h2>
+            <hr>
             <div class="control-group">
                 <label class="control-label">Option Flavour</label>
                 <div class="controls">
@@ -20,8 +22,8 @@
                         European
                     </label>
                     <label class="radio">
-                    <input type="radio" name="optionFlavours" id="american" value="american">
-                        American
+                    <input type="radio" name="optionFlavours" id="american" value="american" disabled>
+                        <span class="coming-soon">American</span> Coming soon
                     </label>
                 </div>
             </div>
@@ -36,60 +38,66 @@
                     <input type="radio" name="optionTypes" id="put" value="put">
                         Put
                     </label>
+                    <label class="radio">
+                    <input type="radio" name="optionTypes" id="both" value="both">
+                        Both
+                    </label>
                 </div>
             </div>
             <div class="control-group">
                 <label for="strike" class="control-label">Strike Price</label>
                 <div class="controls input-prepend">
                     <span class="add-on">$</span>
-                    <input type="text" id="strike" placeholder="0.00" class="content-pended">
+                    <input type="text" id="strike" name="strike" placeholder="0.00" class="content-pended">
                 </div>
             </div>
             <div class="control-group">
                 <label for="priceunderlying" class="control-label">Price of Underlying</label>
                 <div class="controls input-prepend">
                     <span class="add-on">$</span>
-                    <input type="text" id="priceunderlying" placeholder="0.00" class="content-pended">
+                    <input type="text" id="priceunderlying" name="priceunderlying" placeholder="0.00" class="content-pended">
                 </div>
             </div>
             <div class="control-group">
                 <label for="expiretime" class="control-label">Time to Expiration</label>
                 <div class="controls">
-                    <input type="text" id="expiretime" placeholder="number of days">
+                    <input type="text" id="expiretime" name="expiretime" placeholder="number of days" title="E.g. 1 year = 365 days">
                 </div>
             </div>
             <div class="control-group">
                 <label for="volatility" class="control-label">Volatility of Underlying</label>
-                <div class="controls">
-                    <input type="text" id="volatility" placeholder="standard deviation" title="Enter the raw number, not the percent.">
+                <div class="controls input-append">
+                    <input type="text" id="volatility" name="volatility" class="content-pended align-right" placeholder="standard deviation" title="Enter the percent, not the raw number.">
+                    <span class="add-on">%</span>
                 </div>
             </div>
             <div class="control-group">
                 <label for="dividend" class="control-label">Dividend Yield</label>
                 <div class="controls input-append">
-                    <input type="text" id="dividend" class="content-pended align-right" placeholder="enter 0 if no dividend">
+                    <input type="text" id="dividend" name="dividend" class="content-pended align-right" placeholder="enter 0 if no dividend" title="Enter the percent, not the raw number.">
                     <span class="add-on">%</span>
                 </div>
             </div>
             <div class="control-group">
                 <label for="riskfree" class="control-label">Risk-Free Interest Rate</label>
                 <div class="controls input-append">
-                    <input type="text" id="riskfree" class="content-pended align-right" placeholder="0">
+                    <input type="text" id="riskfree" name="riskfree" class="content-pended align-right" placeholder="0" title="Enter the percent, not the raw number.">
                     <span class="add-on">%</span>
                 </div>
             </div>
-
-            <a href="#" class="btn btn-primary" id="calculate">Calculate</a>
-            <a href="#" class="btn" id="reset">Reset Form</a>
+            <div class="form-actions">
+                <a href="#" class="btn btn-primary" id="calculate">Calculate</a>
+                <a href="#" class="btn" id="reset">Reset Form</a>
+            </div>
             <div class="output"></div>
         </form>
-
     </div>
     <!--
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery-1.9.1.min.js"><\/script>')</script> -->
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="jstat-0.1.0.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
