@@ -62,5 +62,9 @@ input.content-pended {
 }
 
 .output {
-
+    width: 100px;
+    height: 100px;
+    background-color: #333; /*Fallback if the image can't load*/
+    background-image: url('black_bg.png');
+    background-repeat: repeat;
 }
