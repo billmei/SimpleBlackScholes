@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!--[if IE]>
+        <div class="chromeframe">Sorry, this website does not support Internet explorer. Please use a <a href="http://browsehappy.com/">different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</div>
+    <![endif]-->
     <div class="container">
         <form class="form-horizontal" id="mainForm">
             <h1>Black-Scholes Calculator</h1>
@@ -109,12 +112,18 @@
             </table> -->
         </div>
     </div>
-    <!--
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="jquery-1.9.1.min.js"><\/script>')</script> -->
-    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery-1.9.1.min.js"><\/script>')</script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="jstat-0.1.0.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+
+    <script>
+        var _gaq=[['_setAccount','UA-10730961-3'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
 </body>
 </html>

@@ -218,7 +218,6 @@ function displayResult (flavour, type, d1, d2, N_d1, N_d2, result) {
     output.animate({'opacity':0},150);
     output.html('<h3>' + flavour + ' ' + type + '</h3><div class="price">$' + resultHead + '<span class="more-digits">' + resultTail + '</span></div><table class="details"><tr><td>d<sub>1</sub></td><td>d<sub>2</sub></td><td>N(d<sub>1</sub>)</td><td>N(d<sub>2</sub>)</td></tr><tr><td>' + d1.toFixed(6) + '</td><td>' + d2.toFixed(6) + '</td><td>' + N_d1.toFixed(6) + '</td><td>' + N_d2.toFixed(6) + '</td></tr></table>');
     output.animate({'opacity':1},150);
-    alert(result);
 };
 
 function calculateBlackScholes (K, S, deltaT, sigma, q, r) {
