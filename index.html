@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Black-Scholes Calculator. Does exactly what it says.</title>
+    <title>Simple Black-Scholes Calculator. Easily calculate the theoretical price of a vanilla option.</title>
     <meta name="description" content="A simple Black-Scholes calculator">
     <meta name="keywords" content="Black Scholes, Black-Scholes, Black Scholes calculators, options pricing, option price, call option, put option, vanilla option, european option, american option">
     <link rel="stylesheet" href="bootstrap.min.css">
@@ -10,14 +10,83 @@
 </head>
 <body>
     <div class="container">
-        <form class="calculation">
+        <form class="calculation form-horizontal">
             <h1>Black-Scholes Calculator</h1>
-            <input type="text">
-            <button class="btn btn-large btn-primary">Calculate</button>
+            <div class="control-group">
+                <label class="control-label">Option Flavour</label>
+                <div class="controls">
+                    <label class="radio">
+                    <input type="radio" name="optionFlavours" id="european" value="european" checked>
+                        European
+                    </label>
+                    <label class="radio">
+                    <input type="radio" name="optionFlavours" id="american" value="american">
+                        American
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="type" class="control-label">Option Type</label>
+                <div class="controls">
+                    <label class="radio">
+                    <input type="radio" name="optionTypes" id="call" value="call" checked>
+                        Call
+                    </label>
+                    <label class="radio">
+                    <input type="radio" name="optionTypes" id="put" value="put">
+                        Put
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="strike" class="control-label">Strike Price</label>
+                <div class="controls input-prepend">
+                    <span class="add-on">$</span>
+                    <input type="text" id="strike" placeholder="0.00" class="content-pended">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="expiretime" class="control-label">Time to Expiration</label>
+                <div class="controls">
+                    <input type="text" id="expiretime" placeholder="number of days">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="priceunderlying" class="control-label">Price of Underlying</label>
+                <div class="controls input-prepend">
+                    <span class="add-on">$</span>
+                    <input type="text" id="priceunderlying" placeholder="0.00" class="content-pended">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="volatility" class="control-label">Volatility of Underlying</label>
+                <div class="controls">
+                    <input type="text" id="volatility" placeholder="standard deviation" title="Enter the raw number, not the percent.">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="dividend" class="control-label">Dividend Yield</label>
+                <div class="controls input-append">
+                    <input type="text" id="dividend" class="content-pended align-right" placeholder="enter 0 if no dividend">
+                    <span class="add-on">%</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="riskfree" class="control-label">Risk-Free Interest Rate</label>
+                <div class="controls input-append">
+                    <input type="text" id="riskfree" class="content-pended align-right" placeholder="0">
+                    <span class="add-on">%</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary">Calculate</button>
+            <button class="btn">Reset Form</button>
         </form>
     </div>
+    <!--
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="jquery-1.9.1.min.js"><\/script>')</script> -->
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>
