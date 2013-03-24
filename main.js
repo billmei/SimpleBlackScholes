@@ -8,9 +8,12 @@ $('#expiretime').tooltip({
     'placement':'right'
 });
 
+var output = $('#output');
+
 $('#reset').on('click', function () {
     $('#mainForm')[0].reset();
     clearErrorMessages();
+    output.animate({'opacity':0},150);
 });
 
 $('#calculate').on('click', function() {
@@ -31,6 +34,7 @@ function clearErrorMessages () {
     $.each(containers, function(index, value){
         $(this).removeClass('error');
         $(this).removeClass('warning');
+        $(this).removeClass('info');
         $(this).popover('destroy');
     });
 }
@@ -52,7 +56,7 @@ function validateInput () {
     var american = $('#american').prop('checked');
     var call = $('#call').prop('checked');
     var put = $('#put').prop('checked');
-    var both = $('#both').prop('checked');
+    // var both = $('#both').prop('checked'); // Not currently used.
 
     var K = $('#strike').val();
     var S = $('#priceunderlying').val();
@@ -63,6 +67,7 @@ function validateInput () {
 
     var deltaTUnConverted = $('#expiretime').val();
     var sigmaUnConverted = $('#volatility').val();
+    var qUnConverted = $('#dividend').val();
     var rUnConverted = $('#riskfree').val();
 
     //------- Validation ------//
@@ -137,7 +142,7 @@ function validateInput () {
         sigmaContainer.popover('show');
     }
 
-    if (q == null || q == '' || typeof q.length == 'undefined') {
+    if (qUnConverted.length == 0 || typeof qUnConverted.length == 'undefined') {
         qContainer.addClass('info');
         qContainer.popover({'content':'You didn\'t specify a dividend, so the default is 0 (no dividend).','placement':'right','trigger':'manual'});
         qContainer.popover('show');
@@ -184,8 +189,6 @@ function validateInput () {
     if (KValidated && SValidated && deltaTValidated && sigmaValidated && qValidated && rValidated) {
         //------- Calculation ------//
         var result = calculateBlackScholes(K, S, deltaT, sigma, q, r); // result[0] is a call, result [1] is a put.
-        result[0] = Math.round(result[0]*1000000)/1000000; // Rounds to the 6th decimal place
-        result[1] = Math.round(result[1]*1000000)/1000000;
 
         if (european) {
             flavour = "european";
@@ -198,13 +201,10 @@ function validateInput () {
         //------- Display ------//
         if (call) {
             type = "call";
-            displayResult(flavour, type, K, S, deltaT, sigma, q, r, result[0]);
+            displayResult(flavour, type, result[2], result[3], result[4], result[5], result[0]);
         } else if (put) {
             type = "put";
-            displayResult(flavour, type, K, S, deltaT, sigma, q, r, result[1]);
-        } else if (both) {
-            displayResult(flavour, "call", K, S, deltaT, sigma, q, r, result[0]);
-            displayResult(flavour, "put", K, S, deltaT, sigma, q, r, result[1]);
+            displayResult(flavour, type, result[2], result[3], result[4], result[5], result[1]);
         } else {
             type = "Option Type Error";
             alert("Hmm, something went wrong when trying to select between call or put options.");
@@ -212,8 +212,13 @@ function validateInput () {
     }
 };
 
-function displayResult (flavour, type, K, S, deltaT, sigma, q, r, result) {
-    alert(type + "is : " + result);
+function displayResult (flavour, type, d1, d2, N_d1, N_d2, result) {
+    var resultHead = (Math.floor(result*100)/100).toFixed(2); // first two decimal places after the period
+    var resultTail = Math.floor(result*1000000) - Math.floor(result*100)*10000; // next four decimal places (6 decimal places total)
+    output.animate({'opacity':0},150);
+    output.html('<h3>' + flavour + ' ' + type + '</h3><div class="price">$' + resultHead + '<span class="more-digits">' + resultTail + '</span></div><table class="details"><tr><td>d<sub>1</sub></td><td>d<sub>2</sub></td><td>N(d<sub>1</sub>)</td><td>N(d<sub>2</sub>)</td></tr><tr><td>' + d1.toFixed(6) + '</td><td>' + d2.toFixed(6) + '</td><td>' + N_d1.toFixed(6) + '</td><td>' + N_d2.toFixed(6) + '</td></tr></table>');
+    output.animate({'opacity':1},150);
+    alert(result);
 };
 
 function calculateBlackScholes (K, S, deltaT, sigma, q, r) {

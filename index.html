@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <form class="calculation form-horizontal" id="mainForm">
+        <form class="form-horizontal" id="mainForm">
             <h1>Black-Scholes Calculator</h1>
             <h2>Created by <a href="http://www.kortaggio.com" target="_blank">Bill Mei</a></h2>
             <hr>
@@ -38,10 +38,10 @@
                     <input type="radio" name="optionTypes" id="put" value="put">
                         Put
                     </label>
-                    <label class="radio">
+                    <!-- <label class="radio">
                     <input type="radio" name="optionTypes" id="both" value="both">
                         Both
-                    </label>
+                    </label> -->
                 </div>
             </div>
             <div class="control-group">
@@ -86,11 +86,28 @@
                 </div>
             </div>
             <div class="form-actions">
-                <a href="#newResult" class="btn btn-primary" id="calculate">Calculate</a>
+                <a href="#output" class="btn btn-primary" id="calculate">Calculate</a>
                 <a href="#" class="btn" id="reset">Reset Form</a>
             </div>
-            <div class="output"></div>
         </form>
+        <div id="output"><!-- 
+            <h3>European Call</h3>
+            <div class="price">$40.00<span class="more-digits">0000</span></div>
+            <table class="details">
+                <tr>
+                    <td>d<sub>1</sub></td>
+                    <td>d<sub>2</sub></td>
+                    <td>N(d<sub>1</sub>)</td>
+                    <td>N(d<sub>2</sub>)</td>
+                </tr>
+                <tr>
+                    <td>1.123456</td>
+                    <td>1.123456</td>
+                    <td>1.123456</td>
+                    <td>1.123456</td>
+                </tr>
+            </table> -->
+        </div>
     </div>
     <!--
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+
 body {
     padding: 40px 0;
     background-color: #eee;
@@ -9,7 +11,7 @@ div.container {
     width: 100%;
 }
 
-.calculation {
+#mainForm {
     max-width: 400px;
     padding: 19px 29px 0;
     margin: 0 auto 20px auto;
@@ -56,15 +58,53 @@ input.content-pended {
     color: #999;
 }
 
-
 .form-actions {
     background-color: inherit;
 }
 
-.output {
-    width: 100px;
-    height: 100px;
-    background-color: #333; /*Fallback if the image can't load*/
+#output {
+    max-width: 400px;
+    padding: 24px 29px 19px;
+    margin: -25px auto 20px auto;
+    color: #f0f0f0;
+    opacity: 0;
+    position: relative;
+    z-index: -10;
+    background-color: #333; /* Fallback if the image can't load */
     background-image: url('black_bg.png');
     background-repeat: repeat;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+       -moz-border-radius-bottomright: 5px;
+       -moz-border-radius-bottomleft: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+h3 {
+    margin-top: -10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+div#output div.price {
+    font-family: 'Droid Sans Mono', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    line-height: 100%;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+
+span.more-digits {
+    opacity: 0.2;
+}
+
+table.details {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
 }

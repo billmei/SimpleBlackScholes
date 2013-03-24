@@ -1,0 +1,34 @@
+<h3>European Call</h3>
+<div class="price">$40.00<span class="more-digits">0000</span></div>
+<table class="details">
+    <tr>
+        <td>d<sub>1</sub></td>
+        <td>d<sub>2</sub></td>
+        <td>N(d<sub>1</sub>)</td>
+        <td>N(d<sub>2</sub>)</td>
+    </tr>
+    <tr>
+        <td>1.123456</td>
+        <td>1.123456</td>
+        <td>1.123456</td>
+        <td>1.123456</td>
+    </tr>
+</table>
+
+'<h3>' + flavour + ' ' + type + '</h3>
+<div class="price">$' + resultHead + '<span class="more-digits">' + resultTail + '</span></div>
+<table class="details">
+    <tr>
+        <td>d<sub>1</sub></td>
+        <td>d<sub>2</sub></td>
+        <td>N(d<sub>1</sub>)</td>
+        <td>N(d<sub>2</sub>)</td>
+    </tr>
+    <tr>
+        <td>' + d1 + '</td>
+        <td>' + d2 + '</td>
+        <td>' + N_d1 + '</td>
+        <td>' + N_d2 + '</td>
+    </tr>
+</table>
+');
