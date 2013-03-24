@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <form class="calculation form-horizontal">
+        <form class="calculation form-horizontal" id="mainForm">
             <h1>Black-Scholes Calculator</h1>
             <div class="control-group">
                 <label class="control-label">Option Flavour</label>
@@ -46,16 +46,16 @@
                 </div>
             </div>
             <div class="control-group">
-                <label for="expiretime" class="control-label">Time to Expiration</label>
-                <div class="controls">
-                    <input type="text" id="expiretime" placeholder="number of days">
-                </div>
-            </div>
-            <div class="control-group">
                 <label for="priceunderlying" class="control-label">Price of Underlying</label>
                 <div class="controls input-prepend">
                     <span class="add-on">$</span>
                     <input type="text" id="priceunderlying" placeholder="0.00" class="content-pended">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="expiretime" class="control-label">Time to Expiration</label>
+                <div class="controls">
+                    <input type="text" id="expiretime" placeholder="number of days">
                 </div>
             </div>
             <div class="control-group">
@@ -79,9 +79,11 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary">Calculate</button>
-            <button class="btn">Reset Form</button>
+            <a href="#" class="btn btn-primary" id="calculate">Calculate</a>
+            <a href="#" class="btn" id="reset">Reset Form</a>
+            <div class="output"></div>
         </form>
+
     </div>
     <!--
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
