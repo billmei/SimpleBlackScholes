@@ -60,10 +60,10 @@ function validateInput () {
 
     var K = $('#strike').val();
     var S = $('#priceunderlying').val();
-    var deltaT = $('#expiretime').val()/365;
-    var sigma = $('#volatility').val()/100;
-    var q = $('#dividend').val()/100;
-    var r = $('#riskfree').val()/100;
+    var deltaT = $('#expiretime').val()/365.0;
+    var sigma = $('#volatility').val()/100.0;
+    var q = $('#dividend').val()/100.0;
+    var r = $('#riskfree').val()/100.0;
 
     var deltaTUnConverted = $('#expiretime').val();
     var sigmaUnConverted = $('#volatility').val();
@@ -131,7 +131,7 @@ function validateInput () {
         sigmaContainer.popover('show');
     } else if (sigma >= 0 && sigma < 1) {
         sigmaValidated = true;
-    } else if (sigma > 1) {
+    } else if (sigma >= 1) {
         sigmaContainer.addClass('warning');
         sigmaContainer.popover({'content':'Are you sure you want the volatility to be greater than 100%?','placement':'right','trigger':'manual'});
         sigmaContainer.popover('show');
@@ -154,7 +154,7 @@ function validateInput () {
         qContainer.popover('show');
     } else if (q >= 0 && q < 1) {
         qValidated = true;
-    } else if (q > 1) {
+    } else if (q >= 1) {
         qContainer.addClass('warning');
         qContainer.popover({'content':'Are you sure you want a dividend yield greater than 100%?','placement':'right','trigger':'manual'});
         qContainer.popover('show');
@@ -188,7 +188,7 @@ function validateInput () {
 
     if (KValidated && SValidated && deltaTValidated && sigmaValidated && qValidated && rValidated) {
         //------- Calculation ------//
-        var result = calculateBlackScholes(K, S, deltaT, sigma, q, r); // result[0] is a call, result [1] is a put.
+        var result = calculateBlackScholes(K, S, deltaT, sigma, q, r); // result[0] is a call, result[1] is a put.
 
         if (european) {
             flavour = "european";
