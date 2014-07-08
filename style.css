@@ -39,6 +39,7 @@ div.chromeframe {
 h1 {
     font-size: 1.5em;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 h2 {
@@ -47,6 +48,17 @@ h2 {
     font-weight: normal;
     font-style: italic;
     line-height: 0%;
+}
+
+h3 {
+    margin-top: -10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+h1 + p {
+    text-align: center;
+    margin-bottom: 1.75em;
 }
 
 div.controls.input-append, div.controls.input-prepend {
@@ -92,12 +104,6 @@ input.content-pended {
             box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
-h3 {
-    margin-top: -10px;
-    text-align: center;
-    text-transform: capitalize;
-}
-
 div#output div.price {
     font-family: 'Droid Sans Mono', sans-serif;
     font-size: 4em;
@@ -122,7 +128,8 @@ table.details {
 }
 
 .disclaimer {
-    display: inline-block;
+    display: block;
+    margin: 0 auto 2em auto;
     width: 400px;
     color: #999;
     font-size: 10px;
